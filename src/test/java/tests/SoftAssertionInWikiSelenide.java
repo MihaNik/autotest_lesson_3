@@ -21,10 +21,7 @@ public class SoftAssertionInWikiSelenide {
     void softAssertionShouldContainJunit5(){
         open("https://github.com/selenide/selenide");
         $("li a[data-tab-item='i4wiki-tab']").click();
-       // $$("div#wiki-pages-box li").shouldHave(itemWithText("SoftAssertions"));    -- not really needed
         $$("div#wiki-pages-box li a").findBy(text("SoftAssertions")).click();
-       //$$("ol").findBy(text("Using JUnit5 extend test class:")).shouldHave(cssClass("highlight-source-java"));
-
         $x("//li[text()='Using JUnit5 extend test class:']//parent::ol")
                 .sibling(0)
                 .shouldHave(cssClass("highlight-source-java"));
